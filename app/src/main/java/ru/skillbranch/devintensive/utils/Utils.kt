@@ -4,7 +4,7 @@ object Utils {
     fun parseFullName(fullName: String?): Pair<String?, String?> {
         return when (fullName) {
             null -> (Pair(null, null))
-            "" -> (Pair(null, null))
+            "", " " -> (Pair(null, null))
             else -> {
                 val parts: List<String>? = fullName?.split(" ")
 
