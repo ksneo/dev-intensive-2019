@@ -14,4 +14,12 @@ object Utils {
             }
         }
     }
+
+    fun transliteration(payload: String, divider: String = " "): String {
+        TODO("Not implemented")
+    }
+
+    fun toInitials(firstName: String?, lastName: String?): String {
+        TODO("Not implemented")
+    }
 }

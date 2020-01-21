@@ -10,7 +10,7 @@ class User(
     var avatar: String?,
     var rating: Int = 0,
     var respect: Int = 0,
-    var lastVisit: Date? = Date(),
+    val lastVisit: Date? = Date(),
     var isOnline: Boolean = false
 ) {
     companion object Factory {

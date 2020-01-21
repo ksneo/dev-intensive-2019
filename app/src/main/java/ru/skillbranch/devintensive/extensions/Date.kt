@@ -9,23 +9,31 @@ const val MINUTE = 60 * SECOND
 const val HOUR = 60 * MINUTE
 const val DAY = 24 * HOUR
 
-fun Date.format(pattern: String="HH:mm:ss dd.MM.yy"):String {
+fun Date.format(pattern: String = "HH:mm:ss dd.MM.yy"): String {
     val dateFormat = SimpleDateFormat(pattern, Locale("ru"))
     return dateFormat.format(this)
 }
 
-fun Date.add(value:Int, units: String): Date {
+fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
     var time = this.time
 
     time += when (units) {
-        "second", "seconds" -> value * SECOND
-        "minute", "minutes" -> value * MINUTE
-        "hour", "hours" -> value * HOUR
-        "day", "days" -> value * DAY
-        else -> throw IllegalStateException("invalid unit")
+        TimeUnits.SECOND -> value * SECOND
+        TimeUnits.MINUTE -> value * MINUTE
+        TimeUnits.HOUR -> value * HOUR
+        TimeUnits.DAY -> value * DAY
     }
     this.time = time
     return this
 }
 
-fun Date.humanizeDiff(): String = ""
+enum class TimeUnits {
+    SECOND,
+    MINUTE,
+    HOUR,
+    DAY
+}
+
+fun Date.humanizeDiff(date: Date = Date()): String {
+    TODO("not implemented")
+}
